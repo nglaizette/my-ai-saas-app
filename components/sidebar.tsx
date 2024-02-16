@@ -2,6 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Lato } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+
+const lato = Lato({ weight: '700', subsets:["latin"]});
 
 const Sidebar = ( ) => {
 	return (
@@ -15,6 +20,9 @@ const Sidebar = ( ) => {
 							src="/logo.png"
 							/>
 					</div>
+					<h1 className={cn("text-2xl font-bold", lato.className)}>
+						Genius
+					</h1>
 				</Link>
 			</div>
 		</div>
