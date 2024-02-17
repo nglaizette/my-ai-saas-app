@@ -39,6 +39,7 @@ const Sidebar = ( ) => {
 								<Link
 									href={route.href}
 									key={route.href}
+									className="text-sn group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition"
 								>
 									<div className="flex items-center flex-1">
 										<route.icon className={cn("h-5 w-5 mr-3", route.color)} />
