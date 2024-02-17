@@ -51,7 +51,7 @@ const routes = [
 		label: "Settings",
 		icon: Settings,
 		href: "/settings"
-	},
+	}
 ] 
 const Sidebar = ( ) => {
 	return (
