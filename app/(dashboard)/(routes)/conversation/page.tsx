@@ -15,8 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
+import { UserAvatar } from "@/components/user-avatar";
+import { BotAvatar } from "@/components/bot-avatar";
 
 import {fromSchema } from "./constants"
+import { cn } from "@/lib/utils";
+
 
 
 
@@ -104,7 +108,7 @@ const ConversationPage = () => {
 				<div className="flex flex-col-reverse gap-y-4">
 					{
 						messages.map((message, index)=>(
-							<div key={index}>
+							<div key={index} className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg", message.role === "user" ?  "bg-white border border-black/10" : "bg-muted")}>
 								{
 									Array.isArray(message.content) ? 
 										message.content.map((part, partIndex) => {
@@ -116,7 +120,10 @@ const ConversationPage = () => {
 											}
 										})
 										:
-										message.content
+										<p className="text-sm">
+										{message.role === "user"? <UserAvatar/> : <BotAvatar/>}		
+										{message.content}
+										</p>
 								}
 							</div>
 						))}
