@@ -1,21 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import axios from "axios";
 import * as z from "zod";
 import { MessagesSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { ChatCompletionMessageParam} from "openai/resources/index.mjs";
 
 import { MyHeading } from "@/components/heading";
-
-import {fromSchema } from "./constants"
-
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { ChatCompletion, ChatCompletionMessageParam} from "openai/resources/index.mjs";
+import { Empty } from "@/components/empty";
+
+import {fromSchema } from "./constants"
 
 
 const ConversationPage = () => {
@@ -91,6 +91,9 @@ const ConversationPage = () => {
 				</Form>
 			</div>
 			<div className="space-y-4 mt-4">
+				{messages.length === 0 && !isLoading && (
+					<Empty label="No conversation started."/>	
+				)}
 				<div className="flex flex-col-reverse gap-y-4">
 					{
 						messages.map((message, index)=>(
