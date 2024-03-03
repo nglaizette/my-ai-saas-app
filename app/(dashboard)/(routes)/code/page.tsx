@@ -3,7 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import * as z from "zod";
-import { Code, Divide} from "lucide-react";
+import { Code } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -119,7 +119,7 @@ const CodePage = () => {
 												// Handle 'ChatCompletionContentPartImage' case here
 												return null;
 											}
-										})
+										}).join("")
 										:
 										<p className="text-sm">
 										{message.role === "user"? <UserAvatar/> : <BotAvatar/>}		
