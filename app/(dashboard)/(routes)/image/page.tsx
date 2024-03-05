@@ -3,14 +3,17 @@
 import { useState } from "react";
 import axios from "axios";
 import * as z from "zod";
-import { ImageIcon} from "lucide-react";
+import { Download, ImageIcon} from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 import { MyHeading } from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
@@ -18,10 +21,6 @@ import { Loader } from "@/components/loader";
 
 import {amountOptions, fromSchema, resolutionOptions } from "./constants"
 import { cn } from "@/lib/utils";
-
-
-
-
 
 const ImagePage = () => {
 	
@@ -44,8 +43,8 @@ const ImagePage = () => {
 			setImages([]);
 			const response = await axios.post("/api/image", values);
 
-			const urls = response.data.map((image:{url :string}) => image.url);
-
+			//const urls = response.data.map((image:{url :string}) => image.url);
+			const urls = response.data;
 
 			setImages(urls);
 			form.reset()
@@ -160,11 +159,35 @@ const ImagePage = () => {
 						<Loader />
 					</div>
 				)}
-				{images.length === 0 && !isLoading && (
-					<Empty label="No images generated."/>	
-				)}
-				<div>
-					Images will be rendered here
+				<div className="flex flex-col-reverse gap-y-4">
+					{images.length === 0 && !isLoading && (
+						<Empty label="No images generated."/>	
+					)}
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
+						{images.map((url, index) => (
+							<Card
+								key={index}
+								className="rounded-lg overflow-hidden"
+							>
+								<div className="relative aspect-square">
+									<Image 
+										alt="Image"
+										fill
+										src={url}
+									/>
+								</div>
+								<CardFooter className="p-2">
+									<Button 
+									onClick={() => window.open(url)}
+									variant="secondary" 
+									className="w-full">
+										<Download className="h-4 w-4 mr-2"/>
+										Download
+									</Button>
+								</CardFooter>
+							</Card>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>
