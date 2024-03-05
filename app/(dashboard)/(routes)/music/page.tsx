@@ -7,7 +7,6 @@ import { Music } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { ChatCompletionMessageParam} from "openai/resources/index.mjs";
 
 import { MyHeading } from "@/components/heading";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -95,9 +94,12 @@ const MusicPage = () => {
 				{!music && !isLoading && (
 					<Empty label="No music generated."/>	
 				)}
-				<div className="flex flex-col-reverse gap-y-4">
-					Music will be generated
-				</div>
+				{music && (
+					<audio controls className="w-full mt-8">
+						<source src={music} />
+					</audio>
+				)
+				}
 			</div>
 		</div>
 	</div>
