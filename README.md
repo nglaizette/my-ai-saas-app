@@ -43,3 +43,22 @@ https://replicate.com/
 https://app.planetscale.com/nglaizette/welcome
 
 https://supabase.com/
+
+pm i next@12 react@17 react-dom@17 eslint-config-next@12
+npm run dev
+npx create-next-app@latest my-ai-saas-app --typescript --tailwind --eslint
+npx shadcn-ui@latest init
+npx shadcn-ui@latest add card
+npx shadcn-ui@latest add form
+npx shadcn-ui@latest add input
+npm i openai
+npm i axios
+npx shadcn-ui@latest add select
+npm i replicate
+npm i -D prisma
+npx prisma init
+npm i @prisma/client
+installation extension vscode pour prisma.
+npx prisma db push (pousser le shéma)
+npx prisma generate (générer la base)
+npx prisma studio (examiner la base sur localhost: http://localhost:5555/)
