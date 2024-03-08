@@ -61,4 +61,4 @@ npm i @prisma/client
 installation extension vscode pour prisma.
 npx prisma db push (pousser le shéma)
 npx prisma generate (générer la base)
-npx prisma studio (examiner la base sur localhost: http://localhost:5555/)
+npx prisma studio (examiner /  changer les valeur dans la base sur localhost: http://localhost:5555/)
