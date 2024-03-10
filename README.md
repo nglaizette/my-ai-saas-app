@@ -68,3 +68,4 @@ npx shadcn-ui@latest add progress
 npm i zustand
 
 npx shadcn-ui@latest add dialog
+npx shadcn-ui@latest add badge
