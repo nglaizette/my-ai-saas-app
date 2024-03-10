@@ -66,3 +66,5 @@ npx prisma studio (examiner /  changer les valeur dans la base sur localhost: ht
 npx shadcn-ui@latest add progress
 
 npm i zustand
+
+npx shadcn-ui@latest add dialog
