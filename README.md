@@ -67,7 +67,7 @@ npm i -D prisma
 npx prisma init
 npm i @prisma/client
 installation extension vscode pour prisma.
-npx prisma db push (pousser le shéma)
+npx prisma db push (pousser le schéma)
 npx prisma generate (générer la base)
 npx prisma studio (examiner /  changer les valeur dans la base sur localhost: http://localhost:5555/)
 
@@ -79,3 +79,8 @@ npx shadcn-ui@latest add dialog
 npx shadcn-ui@latest add badge
 
 npm i stripe
+
+Après changement de shéma prisma
+npx prisma generate
+puis pousser la création à la base
+npx prisma db push
