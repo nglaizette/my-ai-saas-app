@@ -40,9 +40,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 https://replicate.com/
 
-https://app.planetscale.com/nglaizette/welcome
+Exbase de données: plus de truc gratuit
+https://app.planetscale.com/
 
+base de données
 https://supabase.com/
+
+payement
+https://dashboard.stripe.com/
+
+
+
 
 pm i next@12 react@17 react-dom@17 eslint-config-next@12
 npm run dev
@@ -69,3 +77,5 @@ npm i zustand
 
 npx shadcn-ui@latest add dialog
 npx shadcn-ui@latest add badge
+
+npm i stripe
