@@ -84,3 +84,9 @@ Après changement de shéma prisma
 npx prisma generate
 puis pousser la création à la base
 npx prisma db push
+
+installation de la cli stripe
+brew install stripe/stripe-cli/stripe
+stripe login
+Ouvrir l'url fourni et accepter la connexion
+stripe listen --forward-to localhost:3000/api/webhook
