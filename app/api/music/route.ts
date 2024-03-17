@@ -47,8 +47,10 @@ export async function POST(
 			}
 		  );
 
-		  await increaseApiLimit();
-
+		  if(!isPro){
+		  	await increaseApiLimit();
+		  }
+		  
 		 return NextResponse.json(response)
 
 	} catch (error){

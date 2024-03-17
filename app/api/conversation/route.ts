@@ -42,8 +42,10 @@ export async function POST(
 			messages
 		 });
 
-		 await increaseApiLimit();
-
+		 if(!isPro){
+		 	await increaseApiLimit();
+		 }
+		 
 		 return NextResponse.json(response.choices[0].message)
 
 	} catch (error){

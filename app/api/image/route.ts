@@ -52,8 +52,10 @@ export async function POST(
 			size: resolution,
 		 });
 
-		 await increaseApiLimit();
-
+		 if(!isPro){
+		 	await increaseApiLimit();
+		 }
+		 
 		 // Log the entire response for debugging
 		 console.log("OpenAI API Response:", response);
 		
