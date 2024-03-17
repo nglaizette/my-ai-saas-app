@@ -95,3 +95,4 @@ nettoyer la basededonnées entière:
 npx prisma migrate reset puis npx prisma generate et npx prisma db push
 
 npm i react-hot-toast
+npm i crisp-sdk-web
