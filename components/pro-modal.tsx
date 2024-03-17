@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useProModal } from "@/hooks/use-pro-modal";
@@ -56,6 +57,8 @@ export const ProModal = () => {
 
 			window.location.href = response.data.url;
 		} catch (error) {
+			
+			toast.error("Something went wrong!");
 			console.log(error, "STRIPE_CLIENT_ERROR");
 		} finally {
 			setLoading(false);
@@ -95,6 +98,7 @@ export const ProModal = () => {
 				</DialogHeader>
 				<DialogFooter>
 					<Button
+						disabled={loading}
 						onClick={onSubscribe}
 						size="lg"
 						variant="premium"
